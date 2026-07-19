@@ -6,21 +6,13 @@ A C# bridge that sits between **The Isle: Evrima** (via the CnCBridge Lua plugin
 isle server → CnCBridge (Lua plugin) → IsleBridge.Api (C# proxy) → your microservice
 ```
 
-The Lua plugin never opens a socket — it communicates purely through NDJSON files under
-`TheIsle/Binaries/Win64/Mods/CnCBridge/Saved/`. **IsleBridge.Api** owns that filesystem
-channel and exposes it over HTTP/SSE. **IsleBridge.Integration** is a C# SDK that hides the
-HTTP entirely, giving your microservice typed commands and live streams.
-
-See `Contract.md` for the full plugin wire contract (streams, verbs, result codes, limits).
-
 ---
 
 ## Projects
 
-| Project | What it is |
-|---|---|
-| **IsleBridge.Api** | Thin proxy. Tails the plugin's NDJSON out-streams and relays them over SSE; appends commands to the inbox. Owns the file mount. |
-| **IsleBridge.Integration** | C# SDK for the consuming microservice. Typed verb methods, live `IAsyncEnumerable` streams, automatic result correlation. No HTTP surface. |
+| Project            | What it is |
+|--------------------|---|
+| **IsleBridge.Sdk** | C# SDK for the consuming microservice. Typed verb methods, live `IAsyncEnumerable` streams, automatic result correlation. No HTTP surface. |
 
 ---
 
@@ -95,7 +87,7 @@ docker compose up --build
 
 ---
 
-## IsleBridge.Integration (SDK)
+## IsleBridge.Sdk (SDK)
 
 Reference the project (or its NuGet package once published). It targets `net10.0` and uses a
 `FrameworkReference` to `Microsoft.AspNetCore.App` (it ships hosted services and uses
