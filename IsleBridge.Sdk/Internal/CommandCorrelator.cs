@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Models;
 
-namespace IsleBridge.Integration.Internal;
+namespace IsleBridge.Sdk.Internal;
 
 /// <summary>
 /// Bridges the fire-and-forget command POST to the asynchronous results stream. A command

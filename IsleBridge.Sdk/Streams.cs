@@ -1,7 +1,7 @@
-using IsleBridge.Integration.Internal;
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Internal;
+using IsleBridge.Sdk.Models;
 
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 /// <summary>Live in-game chat feed (contract §8). HTTP/SSE is hidden — just enumerate.</summary>
 public interface IChatStream

@@ -1,4 +1,4 @@
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 /// <summary>
 /// Known EVRIMA species short names for <see cref="IBridgeClient.SwapAsync"/>. These are the

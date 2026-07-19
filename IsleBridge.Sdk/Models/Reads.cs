@@ -1,4 +1,4 @@
-namespace IsleBridge.Integration.Models;
+namespace IsleBridge.Sdk.Models;
 
 /// <summary><c>players</c> payload.</summary>
 public sealed class PlayersData

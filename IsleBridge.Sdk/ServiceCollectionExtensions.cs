@@ -1,8 +1,8 @@
-using IsleBridge.Integration.Internal;
+using IsleBridge.Sdk.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 public static class ServiceCollectionExtensions
 {

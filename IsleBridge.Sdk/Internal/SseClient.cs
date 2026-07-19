@@ -1,10 +1,10 @@
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Models;
 using Microsoft.Extensions.Logging;
 
-namespace IsleBridge.Integration.Internal;
+namespace IsleBridge.Sdk.Internal;
 
 /// <summary>
 /// Minimal Server-Sent Events client with automatic reconnect. Yields the <c>data:</c>

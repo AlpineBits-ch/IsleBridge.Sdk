@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace IsleBridge.Integration.Models;
+namespace IsleBridge.Sdk.Models;
 
 /// <summary>
 /// An <c>FLinearColor</c>. Components are lowercase <c>r/g/b/a</c> per the contract;

@@ -1,4 +1,4 @@
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 /// <summary>
 /// The vital names accepted by <see cref="IBridgeClient.SetVitalAsync"/> (contract §6). The

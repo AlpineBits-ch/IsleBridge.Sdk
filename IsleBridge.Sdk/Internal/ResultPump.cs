@@ -1,8 +1,8 @@
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace IsleBridge.Integration.Internal;
+namespace IsleBridge.Sdk.Internal;
 
 /// <summary>
 /// Long-lived subscription to the results SSE stream. Every result line is handed to the

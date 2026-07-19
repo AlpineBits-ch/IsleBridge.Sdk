@@ -1,6 +1,6 @@
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Models;
 
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 /// <summary>No result line correlated to the command's id within the timeout (contract §4).</summary>
 public sealed class BridgeTimeoutException(string verb, string id, TimeSpan timeout)

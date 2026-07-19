@@ -1,6 +1,4 @@
-using System.Text.Json.Serialization;
-
-namespace IsleBridge.Integration.Models;
+namespace IsleBridge.Sdk.Models;
 
 /// <summary><c>getmutations</c> payload (contract §6).</summary>
 public sealed class MutationsData

@@ -1,12 +1,12 @@
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
-using IsleBridge.Integration.Internal;
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Internal;
+using IsleBridge.Sdk.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 internal sealed class BridgeClient(
     IHttpClientFactory factory,

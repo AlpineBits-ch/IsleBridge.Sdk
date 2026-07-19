@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace IsleBridge.Integration.Models;
+namespace IsleBridge.Sdk.Models;
 
 /// <summary>
 /// One player snapshot — the shape shared by a <c>stats.ndjson</c> line and the

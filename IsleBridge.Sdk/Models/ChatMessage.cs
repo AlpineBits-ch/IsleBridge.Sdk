@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace IsleBridge.Integration.Models;
+namespace IsleBridge.Sdk.Models;
 
 /// <summary>A line from <c>chat.ndjson</c> (contract §8).</summary>
 public sealed class ChatMessage

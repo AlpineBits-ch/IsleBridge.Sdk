@@ -1,6 +1,6 @@
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Models;
 
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 /// <summary>
 /// Typed, awaitable access to every bridge verb. Each call sends a fire-and-forget command

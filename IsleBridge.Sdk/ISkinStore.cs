@@ -1,6 +1,6 @@
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Models;
 
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 /// <summary>
 /// The consumer's store of desired skins per player. Skins revert on relog (the engine

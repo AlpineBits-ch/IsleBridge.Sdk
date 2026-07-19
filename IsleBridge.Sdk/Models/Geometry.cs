@@ -1,4 +1,4 @@
-namespace IsleBridge.Integration.Models;
+namespace IsleBridge.Sdk.Models;
 
 /// <summary>Engine coordinates. Note the HUD shows Y as latitude, X as longitude (contract §6 getpos).</summary>
 public sealed class Position

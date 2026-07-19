@@ -1,4 +1,4 @@
-namespace IsleBridge.Integration;
+namespace IsleBridge.Sdk;
 
 /// <summary>Configuration for the IsleBridge SDK.</summary>
 public sealed class IsleBridgeOptions

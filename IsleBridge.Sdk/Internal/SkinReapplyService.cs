@@ -1,9 +1,9 @@
-using IsleBridge.Integration.Models;
+using IsleBridge.Sdk.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace IsleBridge.Integration.Internal;
+namespace IsleBridge.Sdk.Internal;
 
 /// <summary>
 /// Implements the contract §5 skin-reapply flow: on a <c>join</c>, wait a few seconds (let

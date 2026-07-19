@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace IsleBridge.Integration.Models;
+namespace IsleBridge.Sdk.Models;
 
 /// <summary>A line from <c>events.ndjson</c> (contract §5): join / leave / death.</summary>
 public sealed class GameEvent
