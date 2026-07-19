@@ -20,9 +20,6 @@ isle server → CnCBridge (Lua plugin) → IsleBridge.Api (C# proxy) → your mi
 
 ## IsleBridge.Sdk (SDK)
 
-Reference the project (or its NuGet package once published). It targets `net10.0` and uses a
-`FrameworkReference` to `Microsoft.AspNetCore.App` (it ships hosted services and uses
-`IHttpClientFactory` / DI / options / logging), so it's intended for server-side hosts.
 
 ### Registration
 
