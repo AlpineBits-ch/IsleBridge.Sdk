@@ -40,7 +40,7 @@ public interface IBridgeClient
     /// <param name="sender">Display name shown in the chat box; omitted defaults to empty.</param>
     /// <param name="mode">Chat channel; defaults to <see cref="ChatMode.Global"/>.</param>
     Task<Result> DmAsync(string text, string? steam = null, string? sender = null,
-        ChatMode mode = ChatMode.Global, CancellationToken ct = default);
+        ChatMode mode = ChatMode.Logging, CancellationToken ct = default);
 
     // --- read verbs -------------------------------------------------------------------
     Task<PositionData> GetPosAsync(string steam, CancellationToken ct = default);
