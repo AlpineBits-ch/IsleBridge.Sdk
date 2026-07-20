@@ -54,6 +54,10 @@ internal sealed class BridgeClient(
     public Task<Result> NotifyAsync(string steam, string message, CancellationToken ct = default) =>
         SendAsync("notify", steam, new { message }, ct: ct);
 
+    public Task<Result> DmAsync(string text, string? steam = null, string? sender = null,
+        ChatMode mode = ChatMode.Global, CancellationToken ct = default) =>
+        SendAsync("dm", steam, new { text, sender, mode = (int)mode }, ct: ct);
+
     // --- read verbs ---------------------------------------------------------------------
 
     public Task<PositionData> GetPosAsync(string steam, CancellationToken ct = default) =>

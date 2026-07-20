@@ -30,6 +30,18 @@ public interface IBridgeClient
     Task<Result> SetMutationsAsync(string steam, SetMutationsArgs mutations, CancellationToken ct = default);
     Task<Result> NotifyAsync(string steam, string message, CancellationToken ct = default);
 
+    /// <summary>
+    /// Post a chat message into the in-game chat box. Leave <paramref name="steam"/> null to
+    /// broadcast to every online player; set it to deliver to that one player. The ack's
+    /// <see cref="Result.Data"/> carries <c>{ queued, broadcast }</c>.
+    /// </summary>
+    /// <param name="text">The message body. Required.</param>
+    /// <param name="steam">Target Steam64, or null/omitted to broadcast to all online players.</param>
+    /// <param name="sender">Display name shown in the chat box; omitted defaults to empty.</param>
+    /// <param name="mode">Chat channel; defaults to <see cref="ChatMode.Global"/>.</param>
+    Task<Result> DmAsync(string text, string? steam = null, string? sender = null,
+        ChatMode mode = ChatMode.Global, CancellationToken ct = default);
+
     // --- read verbs -------------------------------------------------------------------
     Task<PositionData> GetPosAsync(string steam, CancellationToken ct = default);
     Task<StatsSnapshot> GetStatsAsync(string steam, CancellationToken ct = default);

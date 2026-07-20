@@ -16,7 +16,6 @@ internal sealed class ResultPump(
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        logger.LogInformation("Result correlation pump started");
         try
         {
             await foreach (var result in sse.StreamAsync<Result>(ApiRoutes.ResultsStream, stoppingToken))
