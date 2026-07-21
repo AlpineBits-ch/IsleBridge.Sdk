@@ -13,6 +13,10 @@ public sealed class StatsSnapshot
     public string? Species { get; init; }
     public double Growth { get; init; }
     public Position? Pos { get; init; }
+
+    /// <summary>Facing/orientation when the plugin reports it (may be omitted). Yaw drives proximity-voice panning.</summary>
+    public Rotation? Rot { get; init; }
+
     public Vitals? Vitals { get; init; }
     public Nutrients? Nutrients { get; init; }
 
