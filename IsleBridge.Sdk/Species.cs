@@ -72,6 +72,8 @@ public static class Species
         Spinosaurus, Giganotosaurus, Suchomimus, Parasaurolophus, Avaceratops, Oviraptor,
         Magyarosaurus
     ];
+    
+    public static readonly IReadOnlyList<string> All = InDevelopment.Concat(Playable).ToList();
 
     /// <summary>True if <paramref name="species"/> is a currently shipped short name (case-insensitive).</summary>
     public static bool IsPlayable(string species) =>
@@ -83,10 +85,7 @@ public static class Species
     
     public static string FriendlyName(string species)
     {
-        var fullList = Playable.ToList();
-        fullList.AddRange(InDevelopment.ToList());
-        
-        return fullList.FirstOrDefault(p =>
+        return All.FirstOrDefault(p =>
             species.Contains(p, StringComparison.InvariantCultureIgnoreCase)) ?? species;
     }
 }
