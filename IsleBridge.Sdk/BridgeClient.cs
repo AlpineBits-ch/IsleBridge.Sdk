@@ -30,11 +30,8 @@ internal sealed class BridgeClient(
     public Task<Result> UnprimeAsync(string steam, CancellationToken ct = default) =>
         SendAsync("unprime", steam, ct: ct);
 
-    public Task<Result> TeleportAsync(string steam, double x, double y, double z, double? yaw = null, CancellationToken ct = default)
-    {
-        var safeZ = z + 50;
-        return SendAsync("teleport", steam, new { x, y, z = safeZ, yaw }, ct: ct);
-    }
+    public Task<Result> TeleportAsync(string steam, double x, double y, double z, double? yaw = null, CancellationToken ct = default) =>
+        SendAsync("teleport", steam, new { x, y, z, yaw }, ct: ct);
 
     public Task<Result> HealAsync(string steam, CancellationToken ct = default) =>
         SendAsync("heal", steam, ct: ct);
