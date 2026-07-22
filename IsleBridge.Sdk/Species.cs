@@ -80,4 +80,13 @@ public static class Species
     /// <summary>True if <paramref name="species"/> is any known short name — shipped or in development.</summary>
     public static bool IsKnown(string species) =>
         IsPlayable(species) || InDevelopment.Contains(species, StringComparer.OrdinalIgnoreCase);
+    
+    public static string FriendlyName(string species)
+    {
+        var fullList = Playable.ToList();
+        fullList.AddRange(InDevelopment.ToList());
+        
+        return fullList.FirstOrDefault(p =>
+            species.Contains(p, StringComparison.InvariantCultureIgnoreCase)) ?? species;
+    }
 }
