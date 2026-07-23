@@ -19,6 +19,28 @@ public sealed class SkinColor
     {
         R = r; G = g; B = b; A = a;
     }
+
+    public static SkinColor FromHex(string? hex, double a = 1.0)
+    {
+        if (hex == null)
+            return new SkinColor()
+            {
+                R = 0.0,
+                G = 0.39, // Approximate value for dark green (e.g., #006400)
+                B = 0.0,
+                A = a
+            };
+        
+        var skinColor = new SkinColor()
+        {
+            R = Convert.ToInt32(hex.Substring(0, 2), 16) / 255.0,
+            G = Convert.ToInt32(hex.Substring(2, 2), 16) / 255.0,
+            B = Convert.ToInt32(hex.Substring(4, 2), 16) / 255.0,
+            A = a,
+        };
+        
+        return skinColor;
+    }
 }
 
 /// <summary>
@@ -50,4 +72,77 @@ public sealed class SkinCustomizer
     /// valid one or leave it null (contract §9).
     /// </summary>
     [JsonPropertyName("PatternIndex")] public int? PatternIndex { get; init; }
+
+
+
+    /// <summary>
+    /// The sdk supports import from a command like this
+    /// body=808080 marks=808080 flank=808080 belly=808080 detail=808080 eyes=FFFFFF male=808080 teeth=FFFFFF mouth=FF8080 claws=505050
+    /// </summary>
+    /// <param name="props"></param>
+    /// <returns></returns>
+    public static SkinCustomizer FromProps(string props)
+    {
+        // body 
+        var bodyHex = GetHexFromPropName("body", props);
+        var bodyColor = SkinColor.FromHex(bodyHex);
+        
+        
+        // marks 
+        var marksHex = GetHexFromPropName("marks", props);
+        var marksColor = SkinColor.FromHex(marksHex);
+        
+        // flanks
+        var flanksHex = GetHexFromPropName("flank", props);
+        var flanksColor = SkinColor.FromHex(flanksHex);
+        
+        // belly
+        var bellyHex = GetHexFromPropName("belly", props);
+        var bellyColor = SkinColor.FromHex(bellyHex);
+        
+        // details 
+        var detailsHex = GetHexFromPropName("detail", props);
+        var detailsColor = SkinColor.FromHex(detailsHex);
+        
+        // eyes
+        var eyesHex = GetHexFromPropName("eyes", props);
+        var eyesColor = SkinColor.FromHex(eyesHex);
+        
+        // male
+        var maleHex = GetHexFromPropName("male", props);
+        var maleColor = SkinColor.FromHex(maleHex);
+        
+        // teeth
+        var teethHex = GetHexFromPropName("teeth", props);
+        var teethColor = SkinColor.FromHex(teethHex);
+        
+        // mouth
+        var mouthHex = GetHexFromPropName("mouth", props);
+        var mouthColor = SkinColor.FromHex(mouthHex);
+        
+        // claws
+        var clawsHex = GetHexFromPropName("claws", props);
+        var clawsColor = SkinColor.FromHex(clawsHex);
+        
+        return new SkinCustomizer
+        {
+            BodyColor = bodyColor,
+            MarkingsColor = marksColor,
+            FlankColor = flanksColor,
+            UnderbellyColor = bellyColor,
+            Detail1Color = detailsColor,
+            EyesColor = eyesColor,
+            MaleDisplayColor = maleColor,
+            TeethColor = teethColor,
+            MouthColor = mouthColor,
+            ClawsColor = clawsColor
+        };
+    }
+
+    private static string? GetHexFromPropName(string propName, string propsStr)
+    {
+        var prop = propsStr.Split(' ').FirstOrDefault(p => p.StartsWith(propName + "="));
+        return prop?.Split('=')[1];
+    }
+    
 }
