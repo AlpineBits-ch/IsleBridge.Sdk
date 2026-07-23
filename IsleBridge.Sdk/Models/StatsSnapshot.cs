@@ -13,6 +13,9 @@ public sealed class StatsSnapshot
     public string? Species { get; init; }
     public double Growth { get; init; }
     public Position? Pos { get; init; }
+    
+    public long GroupId { get; set; }
+    public long GroupSize { get; set; }
 
     /// <summary>Facing/orientation when the plugin reports it (may be omitted). Yaw drives proximity-voice panning.</summary>
     public Rotation? Rot { get; init; }
