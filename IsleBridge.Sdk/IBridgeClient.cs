@@ -49,6 +49,8 @@ public interface IBridgeClient
     Task<MutationsData> GetMutationsAsync(string steam, CancellationToken ct = default);
     Task<PlayersData> GetPlayersAsync(CancellationToken ct = default);
     Task<PingData> PingAsync(CancellationToken ct = default);
+    
+    Task<GroundData> GetClosestZAsync(double x, double y, CancellationToken ct = default);
 
     /// <summary>
     /// Escape hatch: send any verb (including ones this SDK version doesn't wrap) and await

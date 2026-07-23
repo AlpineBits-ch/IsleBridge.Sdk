@@ -17,6 +17,15 @@ public sealed class PingData
     public int Uptime { get; init; }
 }
 
+
+public sealed class GroundData
+{
+    public double Z { get; init; }
+    public double X { get; init; }
+    public double Y { get; init; }
+    public bool Water { get; init; }
+}
+
 /// <summary>
 /// Arguments for <c>setstats</c> (contract §6). Any subset; growth is applied first,
 /// prime last.

@@ -61,22 +61,25 @@ internal sealed class BridgeClient(
     // --- read verbs ---------------------------------------------------------------------
 
     public Task<PositionData> GetPosAsync(string steam, CancellationToken ct = default) =>
-        ReadAsync<PositionData>("getpos", steam, ct);
+        ReadAsync<PositionData>("getpos", steam, ct: ct);
 
     public Task<StatsSnapshot> GetStatsAsync(string steam, CancellationToken ct = default) =>
-        ReadAsync<StatsSnapshot>("getstats", steam, ct);
+        ReadAsync<StatsSnapshot>("getstats", steam, ct: ct);
 
     public Task<SkinCustomizer> GetSkinAsync(string steam, CancellationToken ct = default) =>
-        ReadAsync<SkinCustomizer>("getskin", steam, ct);
+        ReadAsync<SkinCustomizer>("getskin", steam, ct: ct);
 
     public Task<MutationsData> GetMutationsAsync(string steam, CancellationToken ct = default) =>
-        ReadAsync<MutationsData>("getmutations", steam, ct);
+        ReadAsync<MutationsData>("getmutations", steam, ct: ct);
 
     public Task<PlayersData> GetPlayersAsync(CancellationToken ct = default) =>
-        ReadAsync<PlayersData>("players", null, ct);
+        ReadAsync<PlayersData>("players", null, ct: ct);
 
     public Task<PingData> PingAsync(CancellationToken ct = default) =>
-        ReadAsync<PingData>("ping", null, ct);
+        ReadAsync<PingData>("ping", null, ct: ct);
+
+    public Task<GroundData> GetClosestZAsync(double x, double y, CancellationToken ct = default) =>
+        ReadAsync<GroundData>("groundz", null, new { x, y }, ct);
 
     // --- core ---------------------------------------------------------------------------
 
@@ -119,9 +122,9 @@ internal sealed class BridgeClient(
         }
     }
 
-    private async Task<T> ReadAsync<T>(string verb, string? steam, CancellationToken ct)
+    private async Task<T> ReadAsync<T>(string verb, string? steam, object? args = null, CancellationToken ct = default)
     {
-        var result = await SendAsync(verb, steam, ct: ct);
+        var result = await SendAsync(verb, steam, args, ct: ct);
         if (!result.Ok) throw new BridgeCommandException(result);
 
         var data = result.DataAs<T>();
