@@ -78,7 +78,7 @@ internal sealed class BridgeClient(
     public Task<PingData> PingAsync(CancellationToken ct = default) =>
         ReadAsync<PingData>("ping", null, ct: ct);
 
-    public Task<GroundData> GetClosestZAsync(double x, double y, CancellationToken ct = default) =>
+    public Task<GroundData> TraceGroundAsync(double x, double y, CancellationToken ct = default) =>
         ReadAsync<GroundData>("groundz", null, new { x, y }, ct);
 
     // --- core ---------------------------------------------------------------------------
